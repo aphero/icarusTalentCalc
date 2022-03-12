@@ -23,7 +23,9 @@ export enum SubTrees {
   Solo = "Solo"
 }
 
-export const talents = [
+export const explorationTalents = []
+
+export const resourcesTalents = [
   {
     name: "Lumber Yield",
     description: "Increased wood from felling",
@@ -31,7 +33,8 @@ export const talents = [
     prerequisites: [],
     benefits: ["+5 Yield from Felling Trees", "+10% Yield from Felling Trees", "+20% Yield from Felling Trees"],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [0,0]
   },
   {
     name: "Skilled Picker",
@@ -40,7 +43,8 @@ export const talents = [
     prerequisites: [],
     benefits: ["+5% Yield from Foraging","+10% Yield from Foraging","+15% Yield from Foraging","+20% Yield from Foraging",],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [0,4]
   },
   {
     name: "Rock Star",
@@ -49,7 +53,8 @@ export const talents = [
     prerequisites: [],
     benefits: ["+10% Yield from Mining Stone","+15% Yield from Mining Stone","+20% Yield from Mining Stone"],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [0,8]
   },
   {
     name: "Dense Packing I",
@@ -58,16 +63,8 @@ export const talents = [
     prerequisites: [],
     benefits: ["+5% Weight Capacity","+10% Weight Capacity","+20% Weight Capacity", ],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
-  },
-  {
-    name: "Carry On",
-    description: "Reduced encumberance penalty",
-    rank: 1,
-    prerequisites: ["Dense Packing I"],
-    benefits: ["-3% Over-Encumberance Penalty","-8% Over-Encumberance Penalty","-15% Over-Encumberance Penalty","-25% Over-Encumberance Penalty",],
-    tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [0,12]
   },
   {
     name: "Wood Breakdown",
@@ -76,7 +73,8 @@ export const talents = [
     prerequisites: ["Lumber Yield"],
     benefits: ["Ability to turn wood into sticks"],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [4,0]
   },
   {
     name: "All The Good Stuff",
@@ -85,7 +83,18 @@ export const talents = [
     prerequisites: ["Skilled Picker"],
     benefits: ["10% chance to find additional Resources in Plants","20% chance to find additional Resources in Plants","30% chance to find additional Resources in Plants",],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [4,4]
+  },
+  {
+    name: "Carry On",
+    description: "Reduced encumberance penalty",
+    rank: 1,
+    prerequisites: ["Dense Packing I"],
+    benefits: ["-3% Over-Encumberance Penalty","-8% Over-Encumberance Penalty","-15% Over-Encumberance Penalty","-25% Over-Encumberance Penalty",],
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [10,4]
   },
   {
     name: "Oxygen Thief",
@@ -94,7 +103,8 @@ export const talents = [
     prerequisites: ["Rock Star"],
     benefits: ["+10% Yield from Mining Oxite","+20% Yield from Mining Oxite","+30% Yield from Mining Oxite",],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [6,8]
   },
   {
     name: "Waste Not",
@@ -103,7 +113,8 @@ export const talents = [
     prerequisites: ["Rock Star"],
     benefits: ["5% chance to find additional Resources while Mining","8% chance to find additional Resources while Mining","10% chance to find additional Resources while Mining",],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
+    subTree: SubTrees.Resources,
+    position: [10,8]
   },
   {
     name: "Exotic Power",
@@ -112,5 +123,37 @@ export const talents = [
     prerequisites: ["Dense Packing I"],
     benefits: ["-5% Carry Weight of Exotics","-10% Carry Weight of Exotics","-15% Carry Weight of Exotics","-25% Carry Weight of Exotics",],
     tree: Trees.Survival,
-    subTree: SubTrees.Resources
-  },]
+    subTree: SubTrees.Resources,
+    position: [14,8]
+  },
+  {
+    name: "Movin' Wood"
+  },
+  {
+    name: "Slinging Stone"
+  },
+  {
+    name: "Dense Packing II"
+  },
+  {
+    name: "Unburdened"
+  },
+  {
+    name: "Metal Miner"
+  },
+  {
+    name: "Exotic Sprinter"
+  },
+  {
+    name: "Seasoned Logsman"
+  },
+  {
+    name: "Friend of the Trees"
+  },
+  {
+    name: "Peerless Lumberjack"
+  },
+  {
+    name: "Lucky Strike"
+  }
+]

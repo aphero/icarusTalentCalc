@@ -1,0 +1,20 @@
+{
+  "name": "icarustalentcalculator",
+  "version": "1.0.0",
+  "description": "Talent calculator for the game Icarus",
+  "main": "IcarusTalentCalc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aphero/icarusTalentCalc.git"
+  },
+  "author": "Josh McKelvey | Misha Krul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aphero/icarusTalentCalc/issues"
+  },
+  "homepage": "https://github.com/aphero/icarusTalentCalc#readme"
+}

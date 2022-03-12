@@ -1,4 +1,4 @@
-import { talents as talentData, Trees, SubTrees } from './talents'
+import * as talentData from './talents'
 
 interface Talents {
   name: string
@@ -6,8 +6,8 @@ interface Talents {
   rank: number
   prerequisites: string[]
   benefits: string[]
-  tree: Trees
-  subTree: SubTrees
+  tree: talentData.Trees
+  subTree: talentData.SubTrees
   currentPoints: number
   totalPoints: number
   available: boolean
@@ -28,12 +28,18 @@ class Talent implements Talents {
   rank: number
   prerequisites: string[]
   benefits: string[]
-  tree: Trees
-  subTree: SubTrees
+  tree: talentData.Trees
+  subTree: talentData.SubTrees
   currentPoints: number
   totalPoints: number
   available: boolean
-  constructor(v) {
+  constructor(v: any) {
+    this.name = v.name
+    this.description = v.description
+    this.rank = v.rank
+    this.prerequisites = v.prerequisites
+    this.tree = v.tree
+    this.subTree = v.subTree
     this.benefits = v.benefits
     this.currentPoints = 0
     this.totalPoints = this.benefits.length
@@ -60,7 +66,7 @@ class Talent implements Talents {
         return true
       }
     }
-    return false
+    return false 
   }
 }
 
@@ -79,7 +85,7 @@ function getSuccessiveTalents(talent: Talent): Talent[] {
 }
 
 let talents: Talent[] = []
-for (let data of talentData) {
+for (let data of talentData.resourcesTalents) {
   talents.push(new Talent(data))
 }
 console.log(talents[0])
@@ -97,4 +103,5 @@ console.log(talents[0])
 
 */
 
-"Each talent invested fills 1/4th of the progress bar towards another rank."
+// "Each talent invested fills 1/4th of the progress bar towards another rank."
+
