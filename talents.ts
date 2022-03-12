@@ -1,3 +1,15 @@
+interface TalentData {
+  name: string
+  description: string
+  rank: number
+  prerequisites: (string | string[])[]
+  benefits: string[]
+  benefitsDesc?: string
+  tree: Trees
+  subTree: SubTrees
+  position: [number, number]
+}
+
 export enum Trees {
   Survival = "Survival",
   Construction = "Construction",
@@ -23,15 +35,16 @@ export enum SubTrees {
   Solo = "Solo"
 }
 
-export const explorationTalents = []
+export const explorationTalents: TalentData[] = []
 
-export const resourcesTalents = [
+export const resourcesTalents: TalentData[] = [
   {
     name: "Lumber Yield",
     description: "Increased wood from felling",
     rank: 1,
     prerequisites: [],
-    benefits: ["+5 Yield from Felling Trees", "+10% Yield from Felling Trees", "+20% Yield from Felling Trees"],
+    benefits: ["+5%", "+10%", "+20%"],
+    benefitsDesc: "Yield from Felling Trees",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [0,0]
@@ -41,7 +54,8 @@ export const resourcesTalents = [
     description: "Increased yield from harvesting by hand",
     rank: 1,
     prerequisites: [],
-    benefits: ["+5% Yield from Foraging","+10% Yield from Foraging","+15% Yield from Foraging","+20% Yield from Foraging",],
+    benefits: ["+5%","+10%","+15%","+20%",],
+    benefitsDesc: "Yield from Foraging",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [0,4]
@@ -51,7 +65,8 @@ export const resourcesTalents = [
     description: "Increased stone from mining",
     rank: 1,
     prerequisites: [],
-    benefits: ["+10% Yield from Mining Stone","+15% Yield from Mining Stone","+20% Yield from Mining Stone"],
+    benefits: ["+10%","+15%","+20%"],
+    benefitsDesc: "Yield from Mining Stone",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [0,8]
@@ -61,7 +76,8 @@ export const resourcesTalents = [
     description: "Increased inventory weight capacity",
     rank: 1,
     prerequisites: [],
-    benefits: ["+5% Weight Capacity","+10% Weight Capacity","+20% Weight Capacity", ],
+    benefits: ["+5%","+10%","+20%"],
+    benefitsDesc: "Weight Capacity",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [0,12]
@@ -74,14 +90,15 @@ export const resourcesTalents = [
     benefits: ["Ability to turn wood into sticks"],
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
-    position: [4,0]
+    position: [0,4]
   },
   {
     name: "All The Good Stuff",
     description: "Receive secondary resources from bushes",
     rank: 2,
     prerequisites: ["Skilled Picker"],
-    benefits: ["10% chance to find additional Resources in Plants","20% chance to find additional Resources in Plants","30% chance to find additional Resources in Plants",],
+    benefits: ["10%","20%","30%",],
+    benefitsDesc: "chance to find additional Resources in Plants",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [4,4]
@@ -92,6 +109,7 @@ export const resourcesTalents = [
     rank: 1,
     prerequisites: ["Dense Packing I"],
     benefits: ["-3% Over-Encumberance Penalty","-8% Over-Encumberance Penalty","-15% Over-Encumberance Penalty","-25% Over-Encumberance Penalty",],
+    benefitsDesc: "Over-Encumberance Penalty",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [10,4]
@@ -101,7 +119,8 @@ export const resourcesTalents = [
     description: "Increase yield from oxite nodes",
     rank: 2,
     prerequisites: ["Rock Star"],
-    benefits: ["+10% Yield from Mining Oxite","+20% Yield from Mining Oxite","+30% Yield from Mining Oxite",],
+    benefits: ["+10%","+20%","+30%",],
+    benefitsDesc: "Yield from Mining Oxite",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [6,8]
@@ -111,7 +130,8 @@ export const resourcesTalents = [
     description: "Receive stone in addition to resources when mining ore deposits",
     rank: 2,
     prerequisites: ["Rock Star"],
-    benefits: ["5% chance to find additional Resources while Mining","8% chance to find additional Resources while Mining","10% chance to find additional Resources while Mining",],
+    benefits: ["5%","8%","10%",],
+    benefitsDesc: "chance to find additional Resources while Mining",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [10,8]
@@ -121,39 +141,116 @@ export const resourcesTalents = [
     description: "Reduces exotics weight in your inventory",
     rank: 2,
     prerequisites: ["Dense Packing I"],
-    benefits: ["-5% Carry Weight of Exotics","-10% Carry Weight of Exotics","-15% Carry Weight of Exotics","-25% Carry Weight of Exotics",],
+    benefits: ["-5%","-10%","-15%","-25%",],
+    benefitsDesc: "Carry Weight of Exotics",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
     position: [14,8]
   },
   {
-    name: "Movin' Wood"
+    name: "Movin' Wood",
+    description: "Decreases wood weight in your inventory",
+    rank: 2,
+    prerequisites: ["Wood Breakdown", "Lumber Yield"],
+    benefits: ["-5%","-10%","-15%","-30%"],
+    benefitsDesc: "Carry Weight of Wood",
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [2,12]
   },
   {
-    name: "Slinging Stone"
+    name: "Slinging Stone",
+    description: "Decreases stone weight in your inventory",
+    rank: 3,
+    prerequisites: ["Rock Star"],
+    benefits: ["-5%","-10%","-15%","-25%"],
+    benefitsDesc: "Carry Weight of Stone",
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [8,12]
   },
   {
-    name: "Dense Packing II"
+    name: "Dense Packing II",
+    description: "Increased inventory weight capacity",
+    rank: 3,
+    prerequisites: ["Dense Packing I"],
+    benefits: ["+5%","+10%","+20%"],
+    benefitsDesc: "Weight Capacity",
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [12,12]
   },
   {
-    name: "Unburdened"
+    name: "Unburdened",
+    description: "Decreased ore weight in your inventory",
+    rank: 3,
+    prerequisites: ["Decreased ore weight in your inventory"],
+    benefits: ["-5%","-10%","-15%","-25%"],
+    benefitsDesc: "Carry Weight of Ores",
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [6,16]
   },
   {
-    name: "Metal Miner"
+    name: "Metal Miner",
+    description: "Increased yield from metal deposits",
+    rank: 3,
+    prerequisites: ["Rock Star", "Slinging Stone"],
+    benefits: ["+10%","+15%","+20%"],
+    benefitsDesc: "Yield from Mining Iron",
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [10,16]
   },
   {
-    name: "Exotic Sprinter"
+    name: "Exotic Sprinter",
+    description: "Increased movespeed with exotics in your inventory",
+    rank: 3,
+    prerequisites: ["Dense Packing I","Dense Packing II"],
+    benefits: ["+5%","+8%","+10%"],
+    benefitsDesc: "Movement Speed while Carrying Exotics",
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [14,16]
   },
   {
-    name: "Seasoned Logsman"
+    name: "Seasoned Logsman",
+    description: "Chopped wood is automatically added to your inventory",
+    rank: 4,
+    prerequisites: ["Lumber Yield", "Wood Breakdown"],
+    benefits: ["Wood is automatically gathered from chopping trees"],
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [0,20]
   },
   {
-    name: "Friend of the Trees"
+    name: "Friend of the Trees",
+    description: "Reduced damage from falling trees",
+    rank: 4,
+    prerequisites: ["Lumber Yield", "Wood Breakdown", "Seasoned Logsman"],
+    benefits: ["+50% Falling Tree Resistance"],
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [4,20]
   },
   {
-    name: "Peerless Lumberjack"
+    name: "Peerless Lumberjack",
+    description: "Chance to instantly chop up a tree",
+    rank: 4,
+    prerequisites: ["Lumber Yield", "Wood Breakdown", "Seasoned Logsman"],
+    benefits: ["1% chance to Instantly Fell Trees"],
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [0,24]
   },
   {
-    name: "Lucky Strike"
+    name: "Lucky Strike",
+    description: "Chance to mine a deposit in one hit",
+    rank: 4,
+    prerequisites: ["Rock Star", "Slinging Stone", ["Unburdened", "Metal Miner"]],
+    benefits: ["poop","pee","butts"],
+    tree: Trees.Survival,
+    subTree: SubTrees.Resources,
+    position: [8,24]
   }
 ]
