@@ -1,4 +1,4 @@
-import * as talentData from './talents'
+import * as talentData from '../constants/talents'
 
 interface Talents {
   name: string
