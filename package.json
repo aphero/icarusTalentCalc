@@ -21,7 +21,7 @@
   "homepage": "https://github.com/aphero/icarusTalentCalc#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "lit-html": "^2.2.1"
+    "liquidjs": "^9.36.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
