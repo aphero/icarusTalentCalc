@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta charset='utf-8'-->
+    <!-- meta http-equiv='X-UA-Compatible' content='IE=edge'-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet"> 
+    <title>Icarus Talent Calculator</title>
+    <!-- meta name='viewport' content='width=device-width, initial-scale=1'-->
+    <link rel='stylesheet' type='text/css' media='screen' href='IcarusTalentCalc.css'>
+  </head>
+  <body>
+    <div class="sub-tree">
+      {% for talent in talents %}
+        {% assign top = talent.position[0] | times: 35 %}
+        {% assign left = talent.position[1] | times: 35 %}
+        <div class="talent-node inactive-node" style="top:{{ top }}px; left: {{ left }}px; background-image: url(../img/Resources/Talent_{{ talent.subTree | capitalize }}_{{ talent.name | replace: ' ', ''}}.png)">
+          <div class="talent-x-y inactive">0/3</div>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

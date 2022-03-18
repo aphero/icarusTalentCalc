@@ -11,8 +11,7 @@
   margin: 36px;
   width: 72px;
   height: 72px;
-  position: relative;
-  background-image: url("../img/Resources/Talent_Resources_LumberYield.png");
+  position: absolute;
   background-size: 72px;
   z-index: 2;
   display: inline-block;

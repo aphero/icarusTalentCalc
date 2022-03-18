@@ -1,21 +1,32 @@
 import express from 'express'
-import { html, render } from 'lit-html'
 import * as path from 'path'
+import * as fs from 'fs'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import { Liquid } from 'liquidjs'
+import { resourcesTalents } from './constants/talents.js'
+import { json } from 'stream/consumers'
+
+// fs.readFileSync(new URL('myfile.txt', import.meta.url))
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const app = express()
 const port = 3000
+const engine = new Liquid({
+  root: path.resolve(__dirname, '../assets/views'),
+  extname: '.liquid'
+})
 
-const a = html`<div>Hello! Greeting!</div>`
+app.engine('liquid', engine.express())
+app.set('views', './assets/views')
+app.set('view engine', 'liquid')
 
-app.use(express.static('img')) // for images
-app.use('/img', express.static('img'))
-app.use(express.static('templates')) // for CSS  
+app.use(express.static('assets/style'))
+app.use('/img', express.static('assets/img'))
 
 app.get('/', (req, res) => {
-  console.log(`Request received, headers: ${JSON.stringify(req.headers)}`)
-  console.log(`Rendering: ${path.resolve("templates/index.htm")}`)
-  // res.sendFile(path.resolve("templates/index.htm"))
-  res.send(a)
+  res.render('index', {talents: resourcesTalents })
 })
 
 app.listen(port, () => {
