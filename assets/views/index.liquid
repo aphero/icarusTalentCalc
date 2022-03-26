@@ -13,8 +13,8 @@
   <body>
     <div class="sub-tree">
       {% for talent in talents %}
-        {% assign top = talent.position[0] | times: 35 %}
-        {% assign left = talent.position[1] | times: 35 %}
+        {% assign top = talent.position[1] | times: 35 %}
+        {% assign left = talent.position[0] | times: 35 %}
         <div class="talent-node inactive-node" style="top:{{ top }}px; left: {{ left }}px; background-image: url(../img/Resources/Talent_{{ talent.subTree | capitalize }}_{{ talent.name | replace: ' ', ''}}.png)">
           <div class="talent-x-y inactive">0/3</div>
         </div>

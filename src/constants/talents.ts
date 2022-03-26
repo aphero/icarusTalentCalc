@@ -58,7 +58,7 @@ export const resourcesTalents: TalentData[] = [
     benefitsDesc: "Yield from Foraging",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
-    position: [0,4]
+    position: [4,0]
   },
   {
     name: "Rock Star",
@@ -69,7 +69,7 @@ export const resourcesTalents: TalentData[] = [
     benefitsDesc: "Yield from Mining Stone",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
-    position: [0,8]
+    position: [8,0]
   },
   {
     name: "Dense Packing I",
@@ -80,7 +80,7 @@ export const resourcesTalents: TalentData[] = [
     benefitsDesc: "Weight Capacity",
     tree: Trees.Survival,
     subTree: SubTrees.Resources,
-    position: [0,12]
+    position: [12,0]
   },
   {
     name: "Wood Breakdown",
