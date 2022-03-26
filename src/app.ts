@@ -13,20 +13,21 @@ const __dirname = dirname(__filename)
 
 const app = express()
 const port = 3000
-const engine = new Liquid({
-  root: path.resolve(__dirname, '../assets/views'),
-  extname: '.liquid'
-})
+// const engine = new Liquid({
+//   root: path.resolve(__dirname, '../assets/views'),
+//   extname: '.liquid'
+// })
 
-app.engine('liquid', engine.express())
-app.set('views', './assets/views')
-app.set('view engine', 'liquid')
+// app.engine('liquid', engine.express())
+// app.set('views', './assets/views')
+// app.set('view engine', 'liquid')
 
 app.use(express.static('assets/style'))
 app.use('/img', express.static('assets/img'))
+app.use('/views', express.static('views'))
 
 app.get('/', (req, res) => {
-  res.render('index', {talents: resourcesTalents })
+  res.sendFile(path.resolve('assets/views/index.htm'))
 })
 
 app.listen(port, () => {
