@@ -1,4 +1,4 @@
-interface TalentData {
+export interface TalentData {
   name: string
   description: string
   rank: number
