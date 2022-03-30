@@ -4,7 +4,7 @@ import * as fs from 'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { Liquid } from 'liquidjs'
-import { resourcesTalents } from './constants/talents.js'
+import { resourcesTalents } from './constants/talents/resources.js'
 import { json } from 'stream/consumers'
 
 // fs.readFileSync(new URL('myfile.txt', import.meta.url))

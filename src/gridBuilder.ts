@@ -3,7 +3,7 @@
 // place div at coordinates
 // draw image
 
-import { resourcesTalents } from "./constants/talents"
+import { resourcesTalents } from "./constants/talents/resources"
 
 
 function writeDocument() {

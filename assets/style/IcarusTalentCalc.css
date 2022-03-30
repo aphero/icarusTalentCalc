@@ -1,10 +1,29 @@
+.trees {
+  display: flex;
+  flex-direction: row;
+  width: 4000px;
+}
+
 .sub-tree {
   width: 500px;
-  height: 1000px;
-  padding: 50px;
-  position: relative;
-  background-image: url("../img/Backgrounds/Survival_Resources_Background.png");
+  height: 950px;
   background-size: 100%;
+}
+
+#resources {
+  background-image: url("../img/Backgrounds/Survival_Resources_Background.png");
+}
+
+#exploration {
+  background-image: url("../img/Backgrounds/Survival_Exploration_Background.png");
+}
+
+#hunting {
+  background-image: url("../img/Backgrounds/Survival_Hunting_Background.png");
+}
+
+#cooking-farming {
+  background-image: url("../img/Backgrounds/Survival_CookingFarming_Background.png");
 }
 
 .talent-node {
