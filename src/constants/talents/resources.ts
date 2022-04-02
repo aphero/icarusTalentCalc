@@ -1,4 +1,4 @@
-import { TalentData, Trees, SubTrees } from "./talents"
+import { TalentData, Trees, SubTrees } from "./talents.js"
 
 export const resourcesTalents: TalentData[] = [
   {
